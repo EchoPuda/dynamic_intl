@@ -86,6 +86,8 @@ Future<bool> initializeDynamicMessages(String localeName) async {
   if (availableLocale == null) {
     return new Future.value(false);
   }
+  var lib = _deferredLibraries[availableLocale];
+  await (lib == null ? new Future.value(false) : lib());
   initializeInternalMessageLookup(() => MessageLookupChange());
   messageLookup.addLocale(availableLocale, _findGeneratedMessagesFor);
   return Future.value(true);

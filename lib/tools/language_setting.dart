@@ -23,7 +23,7 @@ abstract class LanguageSetting {
   String defaultLocale = "en";
 
   /// 支持的语言列表，() => 后不为null即可
-  /// intl官方的格式，就不调了
+  /// intl官方的格式，`checkAndDownload`可以放在这里，那么在加载对应语言时就可以触发检查下载。
   Map<String, LibraryLoader> deferredLibraries = {
     'en': () => Future.value(null),
   };
