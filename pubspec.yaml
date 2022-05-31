@@ -1,7 +1,7 @@
 name: dynamic_intl
-description: intl which can dynamic update
-version: 0.0.1
-homepage:
+description: Dynamically update arb language packs, support version management, incremental update and other functions.
+version: 0.1.0
+homepage: https://github.com/EchoPuda/dynamic_intl/blob/master/README.md
 
 environment:
   sdk: ">=2.16.2 <3.0.0"
