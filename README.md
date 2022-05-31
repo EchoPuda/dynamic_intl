@@ -37,7 +37,7 @@ class TestSetting extends LanguageSetting {
 }
 ```
 `defaultLocale`为默认的语言，最好跟`flutter_intl`中设置的保持一致。会根据这个默认语言来决定各个文案的**占位符**，很重要。
-`deferredLibraries`是**支持的语言列表**，格式跟官方`intl`中自动生成的一样，不另外调整了。
+`deferredLibraries`是**支持的语言列表**，格式跟官方`intl`中自动生成的一样，下边的`checkAndDownload`可以放在这里，那么在加载对应语言时就可以触发检查下载。
 
 还可以设置在远程资源**失效或没有正常获得**的时候，备用的**本地语言包**，格式也是跟官方的一致。
 ```dart
@@ -210,6 +210,6 @@ S.of(context).textPlace(‘123’)
 ```
 
 ## 最后
-翻译的文件有@开头的注释消息，也没有问题，只不过默认的`ArbTranslation`不会处理。`LanguageSetting`可以在你的管理类里面继承，建议`S`也重新再套一层再使用，方便维护。检查下载和切换可以根据实际需求来，全部都一起下载也不是不可以。
+翻译的文件有@开头的注释消息，也没有问题，只不过默认的`ArbTranslation`不会处理。`LanguageSetting`可以在你的管理类里面继承，建议`S`也重新再套一层再使用，方便维护。检查下载和切换可以根据实际需求来，全部都一起下载也不是不可以，也可以配置在`deferredLibraries`中随系统切换时**自动同步检查下载**。
 
 `example`中有个比较简单的可以直接运行的例子，可供参考。有什么问题的话可以直接提issue。
